@@ -2,6 +2,14 @@
 
 > GAE backend
 
+
+## To run:
+
+1. Install App Engine SDK: https://cloud.google.com/appengine/downloads
+2. (in the `api` directory) launch the development app server: `dev_appserver.py app.yaml`
+3. Login via `/_login` or JSON API.
+
+
 ## Keg Object
 
 E.g.:
@@ -16,6 +24,7 @@ E.g.:
 	"unit": "oz"
 }
 ```
+
 
 ### Keg Properties
 `id` unique integer id for the Keg, read-only.
@@ -33,23 +42,17 @@ E.g.:
 
 Returns a array of keg objects or empty array if no kegs exist.
 
+
 ## Create Keg
 
 `POST /api/v1/kegs`
 
 Keg object without `id`, `created`, or `updated` properties.
 
+
 ## Update Keg
 
 `PUT /api/v1/kegs/:keg_id`
-
-Keg object. The following keys are ignored:
-
-1. `id`
-2. `created`
-3. `updated`
-
-All other properties will be updated, if supplied.
 
 Example: Update the Keg's `consumed` to 48:
 ```
