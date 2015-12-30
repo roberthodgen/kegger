@@ -46,3 +46,10 @@ class KegRequestHandler(handle.util.AbstractRequestHandler):
     processor = process.KegUpdateProcessor(keg_id=self.keg_id, **self.request_object)
     self.response.content_type = 'application/json'
     self.response.out.write(json.dumps(processor.response_object))
+
+  @handle.util.param([('keg_id', int)])
+  def delete(self, **kwargs):
+    self.verify_user()
+    processor = process.KegDeleteProcessor(keg_id=self.keg_id)
+    self.response.content_type = 'application/json'
+    self.response.out.write(json.dumps(processor.response_object))

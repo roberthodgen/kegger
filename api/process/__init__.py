@@ -9,3 +9,5 @@ from process.keg import KegListProcessor
 from process.keg import KegObjectProcessor
 
 from process.keg import KegUpdateProcessor
+
+from process.keg import KegDeleteProcessor

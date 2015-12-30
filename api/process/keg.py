@@ -11,8 +11,6 @@ import process
 
 import model
 
-from google.appengine.ext import ndb
-
 
 class KegNotFound(process.util.ProcessorException):
   pass
@@ -71,3 +69,8 @@ class KegUpdateProcessor(KegDependencyProcessor):
       self.keg.unit = kwargs.get('unit')
     self.keg.put()
     self.response_object = self.keg.json_object
+
+class KegDeleteProcessor(KegDependencyProcessor):
+  def process(self, **kwargs):
+    self.keg.key.delete()
+    self.response_object = dict()

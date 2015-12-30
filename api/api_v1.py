@@ -24,11 +24,10 @@ routes.append(webapp2.Route(
   methods=['GET', 'POST']
 ))
 
-
 routes.append(webapp2.Route(
   '/api/v1/kegs/<keg_id:([\d]+)>',
   handler=handle.KegRequestHandler,
-  methods=['GET', 'PUT']
+  methods=['GET', 'PUT', 'DELETE']
 ))
 
 app = webapp2.WSGIApplication(routes)

@@ -78,8 +78,15 @@ Example: Update the Keg's `consumed` to 48:
 ```
 
 
-# Single Keg
+## Single Keg
 
 `GET /api/v1/kegs/:keg_id`
 
 Should return a Keg object.
+
+
+## Delete Keg
+
+`DELETE /api/v1/kegs/:keg_id`
+
+Should delete the Keg and return an empty object.
