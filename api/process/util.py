@@ -9,10 +9,9 @@ from ndb_users import users
 
 
 class AbstractProcessor(object):
-    response_object = dict()
-    response_list = list()
-
     def __init__(self, *args, **kwargs):
+        self.response_object = dict()
+        self.response_list = list()
         self.process(*args, **kwargs)
 
     @property

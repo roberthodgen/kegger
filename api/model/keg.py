@@ -34,7 +34,7 @@ class Keg(ndb.Model):
   updated = ndb.DateTimeProperty(auto_now=True)
 
   @classmethod
-  def create(cls, name, unit=Unit.OUNCE):
+  def create(cls, name, user, unit=Unit.OUNCE):
     if type(user) is not users.User:
       raise KegCreateException("user not instance of User")
     if len(name) < config.KEG_NAME_MIN_LEN:
