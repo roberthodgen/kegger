@@ -45,7 +45,10 @@ class KegCreateProcessor(process.util.AbstractProcessor):
   def process(self, *args, **kwargs):
     if 'name' not in kwargs:
       raise process.util.ProcessorException("`name` missing from kwargs")
-    keg = model.Keg.create(kwargs.get('name'), self.user)
+    keg = model.Keg.create(kwargs.get('name'), self.user,
+      unit=kwargs.get('unit'),
+      capacity=kwargs.get('capacity'),
+      consumed=kwargs.get('consumed'))
     self.response_object = keg.json_object
 
 

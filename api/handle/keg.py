@@ -19,8 +19,7 @@ class KegRequestHandler(handle.util.AbstractRequestHandler):
     self.verify_user()
     self.load_request()
     self.post_validate()
-    processor = process.KegCreateProcessor(
-      name=self.request_object.get('name'))
+    processor = process.KegCreateProcessor(**self.request_object)
     self.response.content_type = 'application/json'
     self.response.out.write(json.dumps(processor.response_object))
 

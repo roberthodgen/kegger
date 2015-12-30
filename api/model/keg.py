@@ -35,13 +35,20 @@ class Keg(ndb.Model):
   updated = ndb.DateTimeProperty(auto_now=True)
 
   @classmethod
-  def create(cls, name, user, unit=Unit.OUNCE):
+  def create(cls, name, user, **kwargs):
     if type(user) is not users.User:
       raise KegCreateException("user not instance of User")
     if len(name) < config.KEG_NAME_MIN_LEN:
       raise KegCreateException("name too short")
-    keg = cls(name=name)
+    unit = kwargs.get('unit', None)
+    if unit is None:
+      unit = Unit.OUNCE
+    keg = cls(name=name, unit=unit)
     keg.users.append(user.key)
+    if 'consumed' in kwargs and kwargs.get('consumed') is not None:
+      keg.consumed = float(kwargs.get('consumed'))
+    if 'capacity' in kwargs and kwargs.get('capacity') is not None:
+      keg.capacity = float(kwargs.get('capacity'))
     if keg.put():
       return keg
     raise KegCreateException("put fail")
