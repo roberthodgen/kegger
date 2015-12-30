@@ -24,6 +24,10 @@ class KegCreateException(model.util.ModelException):
   pass
 
 
+class KegGetException(model.util.ModelException):
+  pass
+
+
 class Keg(ndb.Model):
   name = ndb.StringProperty(required=True)
   users = ndb.KeyProperty(repeated=True, kind=users.User)
@@ -52,6 +56,18 @@ class Keg(ndb.Model):
     if keg.put():
       return keg
     raise KegCreateException("put fail")
+
+  @classmethod
+  def get(cls, keg_id, user):
+    if type(user) is not users.User:
+      raise KegGetException("user not instance of User")
+    key = ndb.Key(cls, keg_id)
+    keg = key.get()
+    if type(keg) is not cls:
+      return None
+    if user.key not in keg.users:
+      return None
+    return keg
 
   @property
   def created_utc(self):

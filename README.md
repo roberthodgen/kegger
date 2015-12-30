@@ -76,3 +76,10 @@ Example: Update the Keg's `consumed` to 48:
 	"consumed": 48
 }
 ```
+
+
+# Single Keg
+
+`GET /api/v1/kegs/:keg_id`
+
+Should return a Keg object.

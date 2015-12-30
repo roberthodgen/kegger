@@ -29,8 +29,7 @@ class KegDependencyProcessor(process.util.AbstractProcessor):
   def keg(self, *args, **kwargs):
       if not hasattr(self, 'keg_id'):
         raise process.util.ProcessorException("self has not `keg_id` property")
-      key = ndb.Key(model.Keg, self.keg_id)
-      self._keg = key.get()
+      self._keg = model.Keg.get(self.keg_id, self.user)
       if type(self._keg) is not model.Keg:
         raise KegNotFound("keg_id")
       return self._keg
