@@ -59,3 +59,16 @@ class KegListProcessor(process.util.AbstractProcessor):
     for keg in kegs:
       self.response_list.append(keg.json_object)
 
+
+class KegUpdateProcessor(KegDependencyProcessor):
+  def process(self, *args, **kwargs):
+    if 'name' in kwargs:
+      self.keg.name = kwargs.get('name')
+    if 'capacity' in kwargs:
+      self.keg.capacity = kwargs.get('capacity')
+    if 'consumed' in kwargs:
+      self.keg.consumed = kwargs.get('consumed')
+    if 'unit' in kwargs:
+      self.keg.unit = kwargs.get('unit')
+    self.keg.put()
+    self.response_object = self.keg.json_object

@@ -7,3 +7,5 @@ from process.keg import KegCreateProcessor
 from process.keg import KegListProcessor
 
 from process.keg import KegObjectProcessor
+
+from process.keg import KegUpdateProcessor

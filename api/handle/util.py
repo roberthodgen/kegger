@@ -164,5 +164,5 @@ class AbstractRequestHandler(webapp2.RequestHandler):
         try:
             self.request_object = json.loads(self.request.body)
         except:
-            raise BadRequestException("JSON POST body")
+            raise BadRequestException("Expected JSON body")
 

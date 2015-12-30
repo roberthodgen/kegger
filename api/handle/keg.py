@@ -38,3 +38,11 @@ class KegRequestHandler(handle.util.AbstractRequestHandler):
       processor = process.KegListProcessor()
       self.response.content_type = 'application/json'
       self.response.out.write(json.dumps(processor.response_list))
+
+  @handle.util.param([('keg_id', int)])
+  def put(self, **kwargs):
+    self.verify_user()
+    self.load_request()
+    processor = process.KegUpdateProcessor(keg_id=self.keg_id, **self.request_object)
+    self.response.content_type = 'application/json'
+    self.response.out.write(json.dumps(processor.response_object))
