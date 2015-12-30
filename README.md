@@ -27,12 +27,19 @@ E.g.:
 
 
 ### Keg Properties
+
 `id` unique integer id for the Keg, read-only.
+
 `name` string, read/write.
+
 `created` timestamp when the Keg was created, read-only.
+
 `updated` timestamp when the Keg was last updated, read-only.
+
 `capacity` float capacity of the Keg, read/write.
+
 `consumed` float amout consumed of the Keg, read/write.
+
 `unit` string, read/write. Options: `oz`, `ml`, `l`
 
 
@@ -40,7 +47,7 @@ E.g.:
 
 `GET /api/v1/kegs`
 
-Returns a array of keg objects or empty array if no kegs exist.
+Returns a array of Keg objects or empty array if no kegs exist.
 
 
 ## Create Keg
@@ -48,6 +55,15 @@ Returns a array of keg objects or empty array if no kegs exist.
 `POST /api/v1/kegs`
 
 Keg object without `id`, `created`, or `updated` properties.
+
+Example:
+```
+{
+	"name": "New Brewski",
+	"capacity": 123.456
+	"unit": "l"
+}
+```
 
 
 ## Update Keg
