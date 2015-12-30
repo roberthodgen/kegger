@@ -42,6 +42,20 @@ E.g.:
 
 `unit` string, read/write. Options: `oz`, `ml`, `l`
 
+`brewerydb_id` ID of the beer on brewerydb.com, read/write.
+
+`style` string, read/write.
+
+`description` string, read/write.
+
+`ibu` integer Internatonal Bitterness Unit, read/write.
+
+`abv` float Alcohol by Volume, read/write.
+
+`glass` string glass description, read/write.
+
+`image` string URL of image asset, read/write.
+
 
 ## Check a user's kegs
 

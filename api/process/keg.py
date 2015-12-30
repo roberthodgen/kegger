@@ -45,7 +45,14 @@ class KegCreateProcessor(process.util.AbstractProcessor):
     keg = model.Keg.create(kwargs.get('name'), self.user,
       unit=kwargs.get('unit'),
       capacity=kwargs.get('capacity'),
-      consumed=kwargs.get('consumed'))
+      consumed=kwargs.get('consumed'),
+      brewerydb_id=kwargs.get('brewerydb_id'),
+      style=kwargs.get('style'),
+      description=kwargs.get('description'),
+      ibu=kwargs.get('ibu'),
+      abv=kwargs.get('abv'),
+      glass=kwargs.get('glass'),
+      image=kwargs.get('image'))
     self.response_object = keg.json_object
 
 
@@ -67,6 +74,20 @@ class KegUpdateProcessor(KegDependencyProcessor):
       self.keg.consumed = kwargs.get('consumed')
     if 'unit' in kwargs:
       self.keg.unit = kwargs.get('unit')
+    if 'brewerydb_id' in kwargs:
+      self.keg.brewerydb_id = kwargs.get('brewerydb_id')
+    if 'style' in kwargs:
+      self.keg.style = kwargs.get('style')
+    if 'description' in kwargs:
+      self.keg.description = kwargs.get('description')
+    if 'ibu' in kwargs:
+      self.keg.ibu = kwargs.get('ibu')
+    if 'abv' in kwargs:
+      self.keg.abv = kwargs.get('abv')
+    if 'glass' in kwargs:
+      self.keg.glass = kwargs.get('glass')
+    if 'image' in kwargs:
+      self.keg.image = kwargs.get('image')
     self.keg.put()
     self.response_object = self.keg.json_object
 

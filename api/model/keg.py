@@ -35,6 +35,13 @@ class Keg(ndb.Model):
   consumed = ndb.FloatProperty(default=0)
   unit = ndb.StringProperty(required=True,
     choices=[Unit.OUNCE, Unit.MILLILITER, Unit.LITER], default=Unit.OUNCE)
+  brewerdb_id = ndb.StringProperty(default=None)
+  style = ndb.StringProperty(default=None)
+  description = ndb.StringProperty(indexed=False)
+  ibu = ndb.IntegerProperty(default=None)
+  abv = ndb.FloatProperty(default=None)
+  glass = ndb.StringProperty(default=None)
+  image = ndb.StringProperty(default=None)
   created = ndb.DateTimeProperty(auto_now_add=True)
   updated = ndb.DateTimeProperty(auto_now=True)
 
@@ -53,6 +60,20 @@ class Keg(ndb.Model):
       keg.consumed = float(kwargs.get('consumed'))
     if 'capacity' in kwargs and kwargs.get('capacity') is not None:
       keg.capacity = float(kwargs.get('capacity'))
+    if 'brewerdb_id' in kwargs and kwargs.get('brewerdb_id') is not None:
+      keg.brewerdb_id = kwargs.get('brewerdb_id')
+    if 'style' in kwargs and kwargs.get('style') is not None:
+      keg.style = kwargs.get('style')
+    if 'description' in kwargs and kwargs.get('description') is not None:
+      keg.description = kwargs.get('description')
+    if 'ibu' in kwargs and kwargs.get('ibu') is not None:
+      keg.ibu = int(kwargs.get('ibu'))
+    if 'abv' in kwargs and kwargs.get('abv') is not None:
+      keg.abv = float(kwargs.get('abv'))
+    if 'glass' in kwargs and kwargs.get('glass') is not None:
+      keg.glass = kwargs.get('glass')
+    if 'image' in kwargs and kwargs.get('image') is not None:
+      keg.image = kwargs.get('image')
     if keg.put():
       return keg
     raise KegCreateException("put fail")
@@ -89,6 +110,13 @@ class Keg(ndb.Model):
       'unit': self.unit,
       'created': self.created_utc.isoformat(),
       'updated': self.updated_utc.isoformat(),
+      'brewerdb_id': self.brewerdb_id,
+      'style': self.style,
+      'description': self.description,
+      'ibu': self.ibu,
+      'abv': self.abv,
+      'glass': self.glass,
+      'image': self.image,
       'id': self.key.id()
     }
     return json_object
