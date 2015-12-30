@@ -1,0 +1,30 @@
+application: kegger
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+
+- url: /api/v1/(.*)
+  script: api_v1.app
+  secure: always
+
+# ndb_users
+- url: /_login/assets
+  static_dir: ndb_users/assets
+- url: /_login(.*)
+  script: ndb_users.login.app
+  secure: always
+- url: /_ah/bounce
+  script: ndb_users.mail.app
+  login: admin
+
+
+libraries:
+- name: webapp2
+  version: latest
+
+inbound_services:
+- mail_bounce
