@@ -1,0 +1,15 @@
+<ion-view view-title="Create Keg">
+	<ion-content>
+		<ion-list>
+			<label class="item item-input">
+				<input ng-model="search.name" type="text" placeholder="Beer name">
+			</label>
+
+			<div class="item item-thumbnail-left" ng-repeat="beer in beers.data">
+				<img ng-src="{{ beer.labels.icon }}" />
+				<h2>{{ beer.name }}</h2>
+				<p>{{ beer.style.shortName }}</p>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>
