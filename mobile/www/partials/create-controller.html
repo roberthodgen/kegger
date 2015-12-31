@@ -2,7 +2,7 @@
 	<ion-content>
 		<ion-list>
 			<label class="item item-input">
-				<input ng-model="search.name" type="text" placeholder="Beer name">
+				<input ng-model="search.name" ng-change="beerSearch()" type="text" placeholder="Beer name">
 			</label>
 
 			<label class="item item-select">

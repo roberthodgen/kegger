@@ -7,6 +7,7 @@ threadsafe: true
 
 handlers:
 
+# API v1
 - url: /api/v1/(.*)
   script: api_v1.app
   secure: always
