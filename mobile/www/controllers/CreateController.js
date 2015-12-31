@@ -8,7 +8,7 @@
 	 */
 	app.constant('BEER_SEARCH_INPUT_TIMEOUT', 300);
 
-	app.controller('CreateController', ['$scope', '$timeout', 'BEER_SEARCH_INPUT_TIMEOUT', 'Log', 'BeerSearch', function ($scope, $timeout, BEER_SEARCH_INPUT_TIMEOUT, Log, BeerSearch) {
+	app.controller('CreateController', ['$scope', '$timeout', 'BEER_SEARCH_INPUT_TIMEOUT', 'Log', 'BreweryDbSearch', function ($scope, $timeout, BEER_SEARCH_INPUT_TIMEOUT, Log, BreweryDbSearch) {
 		var self = this;
 
 		self.beerSearchTimeout = null;
@@ -21,7 +21,8 @@
 				return;
 			}
 
-			$scope.beers = BeerSearch.get({
+			Log.info('kegger.CreateController CreateController.beerSearch initiated');
+			$scope.beers = BreweryDbSearch.query({
 				q: $scope.search.name
 			});
 		};
