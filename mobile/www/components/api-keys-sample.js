@@ -1,3 +1,7 @@
+/**
+ * Rename the file to `api-keys.js` (remove `-sample`)!!
+ */
+
 (function () {
 
 	var app = angular.module('kegger.api-keys', []);
