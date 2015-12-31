@@ -1,23 +1,17 @@
 (function () {
 
-	var app = angular.module('kegger.CreateController', ['roberthodgen.angular-logger']);
+	var app = angular.module('kegger.CreateController', ['roberthodgen.angular-logger', 'kegger.resources']);
 
-	app.controller('CreateController', ['$scope', 'Log', '$resource', function ($scope, Log, $resource) {
-		var Search;
-
+	app.controller('CreateController', ['$scope', 'Log', 'BeerSearch', function ($scope, Log, BeerSearch) {
 		$scope.init = function () {
 			Log.info('kegger.CreateController CreateController $scope.init');
-
-			Search = $resource('mock/search.json', {
-				key: 'abc123'
-			});
 		};
 
 		$scope.search = {};
 
 		$scope.$watch('search.name', function (newName) {
 			Log.info('new name: '+ newName);
-			$scope.beers = Search.get({
+			$scope.beers = BeerSearch.get({
 				q: newName
 			});
 		});
