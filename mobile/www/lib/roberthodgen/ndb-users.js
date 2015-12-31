@@ -9,12 +9,12 @@
     /**
      * URL Constants
      */
-    self.LOGIN_API_PATH                 = '/users/_login.json';
-    self.LOGIN_CREATE_API_PATH          = '/users/_login/create.json';
-    self.LOGIN_ACTIVATE_API_PATH        = '/users/_login/activate.json';
-    self.LOGIN_PASSWORD_CHANGE_API_PATH = '/users/_login/password/change.json';
-    self.LOGIN_PASSWORD_FORGOT_API_PATH = '/users/_login/password/forgot.json';
-    self.LOGIN_PASSWORD_RESET_API_PATH  = '/users/_login/password/reset.json';
+    self.LOGIN_API_PATH                 = '/users/login.json';
+    self.LOGIN_CREATE_API_PATH          = '/users/login/create.json';
+    self.LOGIN_ACTIVATE_API_PATH        = '/users/login/activate.json';
+    self.LOGIN_PASSWORD_CHANGE_API_PATH = '/users/login/password/change.json';
+    self.LOGIN_PASSWORD_FORGOT_API_PATH = '/users/login/password/forgot.json';
+    self.LOGIN_PASSWORD_RESET_API_PATH  = '/users/login/password/reset.json';
 
 
     /**

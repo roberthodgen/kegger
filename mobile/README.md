@@ -2,6 +2,11 @@
 # Kegger Mobile App
 
 
+## Setup
+
+1. Rename and/or copy `/mobile/www/components/api-keys-sample.js` to `/mobile/www/components/api-keys.js` and fill in keys as necessary.
+
+
 ## To Install
 
 1. Node
