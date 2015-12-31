@@ -1,4 +1,17 @@
 <ion-view view-title="Create Keg">
+
+	<ion-nav-buttons side="left">
+		<button class="button button-clear">
+			Cancel
+		</button>
+	</ion-nav-buttons>
+
+	<ion-nav-buttons side="right">
+		<button class="button button-clear">
+			Save
+		</button>
+	</ion-nav-buttons>
+
 	<ion-content>
 		<ion-list>
 			<label class="item item-input">
@@ -8,9 +21,9 @@
 			<label class="item item-select">
                 <span class="input-label">Keg Size</span>
                 <select>
-                    <option>Sixth Barrel</option>
-                    <option>Quarter Barrel</option>
-                    <option>Half Barrel</option>
+                    <option value="661">Sixth Barrel</option>
+                    <option value="992">Quarter Barrel</option>
+                    <option value="1984">Half Barrel</option>
                 </select>
             </label>
 
@@ -21,8 +34,6 @@
 				<p>{{ beer.style.shortName }}</p>
 			</div>
 
-			<a href="#/page1" class="button button-positive button-block ">Add Keg</a>
-            <a href="#/page1" class="button button-stable button-block ">Cancel</a>
 		</ion-list>
 	</ion-content>
 </ion-view>
