@@ -13,7 +13,7 @@
 	}]);
 
 	app.factory('Kegs', ['$resource', function ($resource) {
-		return $resource('/api/v1/kegs', null, {
+		return $resource('/api/v1/kegs/:kegId', null, {
 			query: {
 				isArray: true
 			}
