@@ -1,4 +1,14 @@
 {
   "name": "kegger",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [{
+    "path": "/users",
+    "proxyUrl": "http://localhost:8080/"
+  }, {
+    "path": "/api",
+    "proxyUrl": "http://localhost:8080/api"
+  }, {
+    "path": "/brewerydb",
+     "proxyUrl": "http://api.brewerydb.com/v2"
+  }]
 }
