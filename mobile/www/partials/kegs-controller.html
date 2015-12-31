@@ -14,7 +14,7 @@
 			<a ui-sref="app.keg({ kegId: keg.id })" class="item item-thumbnail-left" ng-repeat="keg in kegs">
 				<img ng-src="{{ keg.image }}" />
 				<h2>{{ keg.name }}</h2>
-				<p ng-if="keg.abv">ABV: {{ keg.abv * 100 }}%</p>
+				<p ng-if="keg.abv">ABV: {{ keg.abv }}%</p>
 				<p>{{ keg.capacity - keg.consumed }}{{ keg.unit }} ({{ ((keg.capacity - keg.consumed) / keg.capacity) * 100 | number:1 }}%) remaining</p>
 			</a>
 		</ion-list>

@@ -16,7 +16,7 @@
 
 		<form class="list">
 			<ion-item class="range range-energized">Keg Level
-				<input type="range" disabled="true" value="661" min="0" max="661" name="Keg Level">
+				<input type="range" disabled="true" value="{{ keg.capacity - keg.consumed }}" min="0" max="{{ keg.capacity }}" name="Keg Level">
 			</ion-item>
 			<div class="spacer" style="width: 300px; height: 11px;"></div>
 			<center><h4>Pour a beer!</h4></center>
