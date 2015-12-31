@@ -68,7 +68,7 @@ NDB_USERS_EMAIL_SENDER = False
 before logging in again. This will not disrupt existing user sessions as
 `users.get_current_user()` only returns a User object for a given (not expired)
 UserSession. """
-NDB_USERS_ENFORCE_EMAIL_VERIFICATION = True
+NDB_USERS_ENFORCE_EMAIL_VERIFICATION = False
 
 """ The amount of time to wait between receiving a bounce email notification and
 sending the user another email. """
@@ -86,18 +86,18 @@ NDB_USERS_DEFAULT_CONTINUE_URI = '/'
 
 """ Route URIs. Warning: Do not change `/_login` prefix unless module URL
 handlers are updated in your .yaml file. """
-NDB_USERS_LOGIN_URI                 = '/_login'
-NDB_USERS_LOGIN_CREATE_URI          = '/_login/create'
-NDB_USERS_LOGIN_ACTIVATE_URI        = '/_login/activate'
-NDB_USERS_LOGIN_PASSWORD_CHANGE_URI = '/_login/password/change'
-NDB_USERS_LOGIN_PASSWORD_FORGOT_URI = '/_login/password/forgot'
-NDB_USERS_LOGIN_PASSWORD_RESET_URI  = '/_login/password/reset'
+NDB_USERS_LOGIN_URI                 = '/users/login'
+NDB_USERS_LOGIN_CREATE_URI          = '/users/login/create'
+NDB_USERS_LOGIN_ACTIVATE_URI        = '/users/login/activate'
+NDB_USERS_LOGIN_PASSWORD_CHANGE_URI = '/users/login/password/change'
+NDB_USERS_LOGIN_PASSWORD_FORGOT_URI = '/users/login/password/forgot'
+NDB_USERS_LOGIN_PASSWORD_RESET_URI  = '/users/login/password/reset'
 
 """ API paths. Warning: Do not change `/_login` prefix unless module URL
 handlers are updated in your .yaml file. """
-NDB_USERS_LOGIN_API_PATH                 = '/_login.json'
-NDB_USERS_LOGIN_CREATE_API_PATH          = '/_login/create.json'
-NDB_USERS_LOGIN_ACTIVATE_API_PATH        = '/_login/activate.json'
-NDB_USERS_LOGIN_PASSWORD_CHANGE_API_PATH = '/_login/password/change.json'
-NDB_USERS_LOGIN_PASSWORD_FORGOT_API_PATH = '/_login/password/forgot.json'
-NDB_USERS_LOGIN_PASSWORD_RESET_API_PATH  = '/_login/password/reset.json'
+NDB_USERS_LOGIN_API_PATH                 = '/users/login.json'
+NDB_USERS_LOGIN_CREATE_API_PATH          = '/users/login/create.json'
+NDB_USERS_LOGIN_ACTIVATE_API_PATH        = '/users/login/activate.json'
+NDB_USERS_LOGIN_PASSWORD_CHANGE_API_PATH = '/users/login/password/change.json'
+NDB_USERS_LOGIN_PASSWORD_FORGOT_API_PATH = '/users/login/password/forgot.json'
+NDB_USERS_LOGIN_PASSWORD_RESET_API_PATH  = '/users/login/password/reset.json'
