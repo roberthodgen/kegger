@@ -91,6 +91,7 @@ class KegUpdateProcessor(KegDependencyProcessor):
     self.keg.put()
     self.response_object = self.keg.json_object
 
+
 class KegDeleteProcessor(KegDependencyProcessor):
   def process(self, **kwargs):
     self.keg.key.delete()
