@@ -2,7 +2,7 @@
 
   var app = angular.module('roberthodgen.ndb-users', ['roberthodgen.angular-logger']);
 
-  app.service('Users', ['$http', 'Log', function ($http, Log) {
+  app.service('Users', ['$http', '$q', 'Log', function ($http, $q, Log) {
     var self = this;
 
 
@@ -64,15 +64,35 @@
 
 
     /**
+     * Users.login
+     * Returns a promise that resolves to an object for the current User or rejects with an explination.
+     */
+    self.login = function (email, password, extended) {
+      extended = extended !== false;
+      log('Users.login');
+      return post(self.LOGIN_API_PATH, {
+        email: email,
+        password: password,
+        extended: extended
+      });
+
+    };
+
+
+    /**
      * defer
      * Wraps an Object in a defer if obj is a user.
      */
     function defer (obj) {
-      if (angular.isObject(obj) && isUser(obj.email)) {
-        return $q.when(obj);
+      if (angular.isObject(obj) && isUser(obj.user)) {
+        return $q.when(obj.user);
       }
 
       return $q.reject(obj);
+    }
+
+    function deferFactory (response) {
+      return defer(response);
     }
 
 
@@ -81,9 +101,7 @@
         method: 'GET',
         url: url,
         data: data
-      }).then(cacheUser).then(function (response) {
-        return response && response.user || {};
-      });
+      }).then(cacheUser).then(deferFactory);
     }
 
 
@@ -92,9 +110,7 @@
         method: 'POST',
         url: url,
         data: data
-      }).then(cacheUser).then(function (response) {
-        return response && response.user || {};
-      });
+      }).then(cacheUser).then(deferFactory);
     }
 
 
