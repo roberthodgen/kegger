@@ -5,6 +5,7 @@
     'roberthodgen.angular-logger',
 
     'kegger.AppController',
+    'kegger.KegsController',
     'kegger.CreateController'
   ]);
 
@@ -23,7 +24,8 @@
 
     $stateProvider.state('app.kegs', {
       url: '/kegs',
-      template: '<p>Kegs</p>'
+      templateUrl: '/partials/kegs-controller.html',
+      controller: 'KegsController'
     });
 
     $stateProvider.state('app.create', {

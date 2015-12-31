@@ -12,4 +12,12 @@
 		});
 	}]);
 
+	app.factory('Kegs', ['$resource', function ($resource) {
+		return $resource('/api/v1/kegs', null, {
+			query: {
+				isArray: true
+			}
+		});
+	}]);
+
 })();
