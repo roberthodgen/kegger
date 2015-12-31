@@ -1,0 +1,31 @@
+<ion-view view-title="{{ keg.name }}">
+	<ion-content>
+
+		<center>
+			<img ng-src="{{ keg.image }}" width="75%" height="auto" style="width: 75%; height: auto;">
+		</center>
+
+		<div>
+			<p><strong>Brewer's Notes:</strong></p>
+
+			<p>{{ keg.description }}</p>
+
+			<p><strong>ABV:</strong>4.2%</p>
+			<p><strong>IBU:</strong>18</p>
+		</div>
+
+		<form class="list">
+			<ion-item class="range range-energized">Keg Level
+				<input type="range" disabled="true" value="661" min="0" max="661" name="Keg Level">
+			</ion-item>
+			<div class="spacer" style="width: 300px; height: 11px;"></div>
+			<center><h4>Pour a beer!</h4></center>
+			<div class="button-bar">
+				<button class="button  button-block ">8oz</button>
+				<button class="button  button-block ">12oz</button>
+				<button class="button  button-block ">16oz</button>
+			</div>
+		</form>
+
+	</ion-content>
+</ion-view>

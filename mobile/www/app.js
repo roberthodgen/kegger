@@ -6,6 +6,7 @@
 
     'kegger.AppController',
     'kegger.KegsController',
+    'kegger.KegController',
     'kegger.CreateController'
   ]);
 
@@ -26,6 +27,12 @@
       url: '/kegs',
       templateUrl: '/partials/kegs-controller.html',
       controller: 'KegsController'
+    });
+
+    $stateProvider.state('app.keg', {
+      url: '/kegs/:kegId',
+      templateUrl: '/partials/keg-controller.html',
+      controller: 'KegController'
     });
 
     $stateProvider.state('app.create', {
