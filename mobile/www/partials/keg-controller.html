@@ -2,30 +2,61 @@
 	<ion-content>
 
 		<center>
-			<img ng-src="{{ keg.image }}" width="75%" height="auto" style="width: 75%; height: auto;">
+			<img ng-src="{{ keg.image }}" width="70%" height="auto" style="width: 70%; height: auto;">
 		</center>
 
 		<div>
-			<p><strong>Brewer's Notes:</strong></p>
 
-			<p>{{ keg.description }}</p>
+			<div class="card">
 
-			<p><strong>ABV:</strong>4.2%</p>
-			<p><strong>IBU:</strong>18</p>
+				<div class="item item-divider">
+	    		Brewer's Notes:
+	  			</div>
+
+	  			<div class="item item-text-wrap">
+	    		{{ keg.description }}
+	  			</div>
+
+			</div>
+
+			<div class="list card">
+
+	  			<div class="item item-icon-left">
+			    <i class="icon ion-beer"></i>
+			    {{ keg.style }}
+			  	</div>
+
+			  	<div class="item item-icon-left">
+			    <i class="icon ion-android-bar"></i>
+			    ABV: {{ keg.abv }}%
+			  	</div>
+
+	    		<div class="item item-icon-left">
+			    <i class="icon ion-ios-flower"></i>
+			    IBU: {{ keg.ibu }}
+			  	</div>
+
+				<div class="item item-icon-left">
+			    <i class="icon ion-ios-pint"></i>
+			    This beer is best enjoyed if served in a {{ keg.glass }} Glass.
+			  	</div>
+
+  			</div>
+			
 		</div>
 
-		<form class="list">
+		
 			<ion-item class="range range-energized">Keg Level
-				<input type="range" disabled="true" value="{{ keg.capacity - keg.consumed }}" min="0" max="{{ keg.capacity }}" name="Keg Level">
+				<input type="range" disabled="true" value="{{ keg.capacity - keg.consumed }}" min="0" max="{{ keg.capacity }}" name="Keg Level"><p>~{{ (keg.capacity - keg.consumed) / 16 }} pints remaining</p>
 			</ion-item>
-			<div class="spacer" style="width: 300px; height: 11px;"></div>
-			<center><h4>Pour a beer!</h4></center>
+
 			<div class="button-bar">
 				<button class="button  button-block ">8oz</button>
 				<button class="button  button-block ">12oz</button>
 				<button class="button  button-block ">16oz</button>
 			</div>
-		</form>
+			
+		
 
 	</ion-content>
 </ion-view>
