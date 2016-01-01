@@ -16,6 +16,9 @@
 		return $resource('/api/v1/kegs/:kegId', null, {
 			query: {
 				isArray: true
+			},
+			put: {
+				method: "PUT"
 			}
 		});
 	}]);
