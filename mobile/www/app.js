@@ -25,19 +25,19 @@
 
     $stateProvider.state('app.kegs', {
       url: '/kegs',
-      templateUrl: '/partials/kegs-controller.html',
+      templateUrl: 'partials/kegs-controller.html',
       controller: 'KegsController'
     });
 
     $stateProvider.state('app.keg', {
       url: '/kegs/:kegId',
-      templateUrl: '/partials/keg-controller.html',
+      templateUrl: 'partials/keg-controller.html',
       controller: 'KegController'
     });
 
     $stateProvider.state('app.create', {
       url: '/create',
-      templateUrl: '/partials/create-controller.html',
+      templateUrl: 'partials/create-controller.html',
       controller: 'CreateController'
     });
   }]);
@@ -51,14 +51,16 @@
   }]);
 
   app.run(['$ionicPlatform', function ($ionicPlatform) {
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
+    $ionicPlatform.ready(function () {
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
+      }
 
-    if (window.StatusBar) {
-      StatusBar.styleDefault();
-    }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
   }]);
 
 })();

@@ -11,6 +11,12 @@
 			});
 		};
 
+		$scope.addConsumed = function (serving) {
+			var newConsumed = $scope.keg.consumed + serving;
+			$scope.keg = Kegs.put({
+				kegId: $stateParams.kegId
+			}, {consumed: newConsumed})
+		}
 
 		/**
 		 * Init
